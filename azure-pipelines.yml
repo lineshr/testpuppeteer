@@ -23,5 +23,5 @@ steps:
   displayName: 'npm install and build'
     
 - script: |
-    npx codeceptjs run --steps --verbose
+    npx codeceptjs run --steps
      
