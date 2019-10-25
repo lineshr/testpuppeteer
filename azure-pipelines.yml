@@ -20,6 +20,7 @@ steps:
     npm run build
     npm install codeceptjs puppeteer --save
     npx codeceptjs init
+    npm install -g allure-commandline --save-dev    
   displayName: 'npm install and build'
     
 - script: |
