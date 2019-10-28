@@ -25,6 +25,5 @@ steps:
   displayName: 'npm install and build'
     
 - script: |
-    npx codeceptjs run --plugins allure --steps
-    allure serve output
+    npx codeceptjs run --plugins allure --steps    
      
