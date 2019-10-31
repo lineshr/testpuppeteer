@@ -26,4 +26,10 @@ steps:
     
 - script: |
     npx codeceptjs run --plugins allure --steps    
-     
+    
+- task: PublishTestResults@2
+  displayName: 'Publish Test Results'
+  inputs:
+    testResultsFiles: 'reports/*.xml'
+    mergeTestResults: true
+    failTaskOnFailedTests: true     
