@@ -1,0 +1,32 @@
+[
+  {
+    "id": "/subscriptions/b19bd521-fffb-4b00-ad0a-0f0d6f3b4f3a/resourceGroups/testlab-grs-grp/providers/Microsoft.Resources/deployments/Microsoft.StorageAccount-20191031085131/operations/4DEF71A1DDA37C60",
+    "operationId": "4DEF71A1DDA37C60",
+    "properties": {
+      "provisioningOperation": "Create",
+      "provisioningState": "Succeeded",
+      "timestamp": "2019-10-31T07:53:18.4153538Z",
+      "duration": "PT23.8536812S",
+      "trackingId": "7025b4a7-811e-4826-9da5-0bdb8b3ab39a",
+      "statusCode": "OK",
+      "targetResource": {
+        "id": "/subscriptions/b19bd521-fffb-4b00-ad0a-0f0d6f3b4f3a/resourceGroups/testlab-grs-grp/providers/Microsoft.Storage/storageAccounts/storagetestlabgrp",
+        "resourceType": "Microsoft.Storage/storageAccounts",
+        "resourceName": "storagetestlabgrp"
+      }
+    }
+  },
+  {
+    "id": "/subscriptions/b19bd521-fffb-4b00-ad0a-0f0d6f3b4f3a/resourceGroups/testlab-grs-grp/providers/Microsoft.Resources/deployments/Microsoft.StorageAccount-20191031085131/operations/08586290985121540257",
+    "operationId": "08586290985121540257",
+    "properties": {
+      "provisioningOperation": "EvaluateDeploymentOutput",
+      "provisioningState": "Succeeded",
+      "timestamp": "2019-10-31T07:53:18.5092276Z",
+      "duration": "PT0.0485639S",
+      "trackingId": "17e35300-46e2-421c-bc83-503ca3fb483c",
+      "statusCode": "OK",
+      "statusMessage": null
+    }
+  }
+]

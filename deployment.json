@@ -1,0 +1,67 @@
+{
+  "id": "/subscriptions/b19bd521-fffb-4b00-ad0a-0f0d6f3b4f3a/resourceGroups/testlab-grs-grp/providers/Microsoft.Resources/deployments/Microsoft.StorageAccount-20191031085131",
+  "name": "Microsoft.StorageAccount-20191031085131",
+  "type": "Microsoft.Resources/deployments",
+  "tags": {
+    "marketplaceItemId": "Microsoft.StorageAccount",
+    "primaryResourceId": "/subscriptions/b19bd521-fffb-4b00-ad0a-0f0d6f3b4f3a/resourcegroups/testlab-grs-grp/providers/Microsoft.Storage/storageAccounts/storagetestlabgrp"
+  },
+  "properties": {
+    "templateHash": "11961669741847493773",
+    "parameters": {
+      "location": {
+        "type": "String",
+        "value": "westeurope"
+      },
+      "storageAccountName": {
+        "type": "String",
+        "value": "storagetestlabgrp"
+      },
+      "accountType": {
+        "type": "String",
+        "value": "Standard_RAGRS"
+      },
+      "kind": {
+        "type": "String",
+        "value": "StorageV2"
+      },
+      "accessTier": {
+        "type": "String",
+        "value": "Hot"
+      },
+      "supportsHttpsTrafficOnly": {
+        "type": "Bool",
+        "value": true
+      }
+    },
+    "mode": "Incremental",
+    "debugSetting": {
+      "detailLevel": "None"
+    },
+    "provisioningState": "Succeeded",
+    "timestamp": "2019-10-31T07:53:18.6053135Z",
+    "duration": "PT25.2817078S",
+    "correlationId": "79d42d0a-033e-40af-814c-86bc394400dc",
+    "providers": [
+      {
+        "namespace": "Microsoft.Storage",
+        "resourceTypes": [
+          {
+            "resourceType": "storageAccounts",
+            "locations": [
+              "westeurope"
+            ]
+          }
+        ]
+      }
+    ],
+    "dependencies": [],
+    "outputs": {},
+    "outputResources": [
+      {
+        "id": "/subscriptions/b19bd521-fffb-4b00-ad0a-0f0d6f3b4f3a/resourceGroups/testlab-grs-grp/providers/Microsoft.Storage/storageAccounts/storagetestlabgrp"
+      }
+    ],
+    "validationLevel": "Template"
+  }
+}
