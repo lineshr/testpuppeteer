@@ -30,6 +30,6 @@ steps:
 - task: PublishTestResults@2
   displayName: 'Publish Test Results'
   inputs:
-    testResultsFiles: 'reports/*.xml'
+    testResultsFiles: 'output/*.xml'
     mergeTestResults: true
     failTaskOnFailedTests: true     
