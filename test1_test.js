@@ -2,7 +2,7 @@
 Feature('sp-web-login');
 
 Scenario('test something',  (I)   => {
-	I.amOnPage('https://sp-web-test-test1.azurewebsites.net/');
+	I.amOnPage('https://sp-web-ver2.azurewebsites.net/');
 		 I.see('Samarbeidsportalen');
 		 I.click('Logg inn');
 		 I.fillField('username','utvtest@difi.no');
