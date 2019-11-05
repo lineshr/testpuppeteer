@@ -1,7 +1,7 @@
 
 Feature('sp-web-login');
 
-Scenario('test something',  (I)   => {
+Scenario('sp-web loginn',  (I)   => {
 	I.amOnPage('https://sp-web-test-test1.azurewebsites.net/');
 	I.see('Samarbeidsportalen');
 	I.click('login-button');
