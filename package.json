@@ -9,5 +9,8 @@
   "devDependencies": {
     "codeceptjs": "^2.3.5",
     "puppeteer": "^2.0.0"    
+  },
+  "dependencies": {
+    "mocha-junit-reporter": "^1.23.1"
   }
 }
