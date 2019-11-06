@@ -5,8 +5,8 @@ Scenario('sp-web ny integrasjoner',  (I)   => {
 	   I.amOnPage('https://sp-web-test-test1.azurewebsites.net/');
 		 I.see('Samarbeidsportalen');
 		 I.click('Logg inn');
-		 I.fillField('username','utvtest@difi.no');
-		 I.fillField('password','Testadmin123');
+		 I.fillField('username',process.env.SP_WEB_USERNAME);
+		 I.fillField('password',process.env.SP_WEB_PASSWORD);
 		 I.click('login');
 		 I.see('INTEGRASJONER');
 		 I.dontSee("PROD");
