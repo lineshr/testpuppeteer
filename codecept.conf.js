@@ -17,7 +17,11 @@ exports.config = {
   include: {
     I: './steps_file.js'
   },
+  mocha: {
+  reporterOptions: {
+      reportDir: 'output'
+  }
+},
   bootstrap: null,
-  mocha: {},
   name: 'webdriverpuppeteer'
 }
