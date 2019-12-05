@@ -15,5 +15,7 @@ mkdir -p output
 #install npm og andre avhenginger
 npm install
 npm run build
-npm install codeceptjs puppeteer mocha-junit-reporter randomstring --save-dev
-npx codeceptjs run --steps --verbose --reporter mocha-junit-reporter 
+#npm install codeceptjs puppeteer mocha-junit-reporter randomstring --save-dev
+#npx codeceptjs run --steps --verbose --reporter mocha-junit-reporter 
+npm install codeceptjs puppeteer mochawesome randomstring --save-dev
+npx codeceptjs run --steps --verbose --reporter mochawesome
