@@ -9,22 +9,12 @@ exports.config = {
       }
     }
   },
-  plugins: {
-    allure: {
-      enabled: 'true'
-  }
-},
   include: {
     I: './steps_file.js'
   },
   mocha: {
     reporterOptions: {
-        reportDir: 'output'
-    }
-  },
-  helpers: {
-    Mochawesome: {
-        'uniqueScreenshotNames': 'true'
+        reportDir: 'output/result.xml'
     }
   },
   bootstrap: null,
