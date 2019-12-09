@@ -14,7 +14,7 @@ exports.config = {
   },
   mocha: {
     reporterOptions: {
-        reportDir: 'output/result.xml'
+        reportDir: 'output'
     }
   },
   bootstrap: null,
