@@ -41,7 +41,9 @@ jobs:
           node-version: [15.x]
 
 
-      steps:    
+      steps:
+        - name: Start selenoid
+          uses: Xotabu4/selenoid-github-action@v2
         - name: Setup NodeJS 14
           uses: actions/checkout@v2
         - name: Use Node.js ${{ matrix.node-version }}
