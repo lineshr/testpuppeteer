@@ -24,13 +24,10 @@ jobs:
       TEST_HOST: testHost
 
     services:
-      hub:
-        image: selenium/hub:3.141.59
-      chrome:
-        image: selenium/node-chrome:3.141.59
-        env:
-          HUB_HOST: hub
-          HUB_PORT: 4444
+       selenium:
+        image: selenium/standalone-chrome:latest
+        ports: 
+          - 4444:4444
 
     strategy:
       matrix:
