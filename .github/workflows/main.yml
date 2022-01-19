@@ -26,9 +26,11 @@ jobs:
             - uses: actions/setup-node@v1
               with:
                 node-version: 16.3.0
-            - name: Install GeckoDriver
-              uses: browser-actions/setup-geckodriver@latest
-              run: geckodriver --version
+                
+
+            - name: Setup Geckodriver
+              uses: browser-actions/setup-geckodriver@v0.0.0
+
                 
                 
             - name: Install
