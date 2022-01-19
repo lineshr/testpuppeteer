@@ -19,38 +19,14 @@ jobs:
   build:
     # The type of runner that the job will run on
       runs-on: ubuntu-latest
-      container:
-        image: node:14.4
-        options: --network-alias testHost
-      env:
-        NODE_ENV: test
-        SELENIUM_HUB_HOST: hub
-        TEST_HOST: testHost
-
-      services:
-        hub:
-          image: selenium/hub:latest
-        chrome:
-          image: selenium/node-chrome:latest
-          env:
-            HUB_HOST: hub
-            HUB_PORT: 4444
-
-      strategy:
-        matrix:
-          node-version: [15.x]
-
-
+      name: Run WDIO tests
       steps:
-        - name: Start selenoid
-          uses: Xotabu4/selenoid-github-action@v2
-        - name: Setup NodeJS 14
-          uses: actions/checkout@v2
-        - name: Use Node.js ${{ matrix.node-version }}
-          uses: actions/setup-node@v1
-          with:
-            node-version: ${{ matrix.node-version }}
-        - run: |
+      - name: Start selenoid
+        uses: Xotabu4/selenoid-github-action@v2
+      - uses: actions/checkout@v1
+      - run: npm ci  
+      - name: Run tests
+        run: |
             npm install
             npm ci --force
             npm install -g allure-commandline --save-dev
