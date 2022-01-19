@@ -48,7 +48,7 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_PAT }}
       - name: Report Tests
-        run:  npm i mocha-multi --force
+        run:  npm i mocha-multi  --save-dev webdriverio@^5.2.2 --force
       - name: Run Store Tests
         run: npx codeceptjs run  --reporter mocha-multi 
       - name: Archive mochawesome Test Report
