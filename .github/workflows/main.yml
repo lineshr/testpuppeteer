@@ -29,9 +29,7 @@ jobs:
             - name: Install
               run: npm install
             - name: Test
-              run:  npm install
-                    npm ci --force
-                    npm install -g allure-commandline --save-dev
+              run:  npm ci --force
                     npm install --save-dev webdriverio@^5.2.2
                     npm i mocha-multi --force
                     npx codeceptjs run --steps
