@@ -47,6 +47,8 @@ jobs:
         run: npm install
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_PAT }}
+      - name: Report Tests
+        run:  npm i mocha-multi --force
       - name: Run Store Tests
         run: npx codeceptjs run  --reporter mocha-multi 
       - name: Archive mochawesome Test Report
