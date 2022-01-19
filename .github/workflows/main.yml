@@ -50,5 +50,5 @@ jobs:
       - name: Report Tests
         run:  npm i mocha-multi  --save-dev webdriverio@^5.2.2 --force
       - name: Run Store Tests
-        run: npx codeceptjs run  --reporter mocha-multi 
+        run: npx codeceptjs run  
 
