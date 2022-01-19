@@ -9,7 +9,7 @@ exports.config = {
               windowSize: "maximize",
               host:"chrome",
               show: true,
-                  url: "https://172.18.0.4:4444",
+                  url: "http://localhost",
             desiredCapabilities: {
                 chromeOptions: {
                     args: [ '--proxy-server=http://localhost:8090 ', '--disable-features=IsolateOrigins,site-per-process', '--disable-site-per-process', '--disable-web-security', '--no-sandbox','--allow-running-insecure-content','--ignore-certificate-errors']
