@@ -12,7 +12,7 @@ exports.config = {
                   url: "http://localhost",
             desiredCapabilities: {
                 chromeOptions: {
-                    args: [ '--proxy-server=http://localhost:8090 ', '--disable-features=IsolateOrigins,site-per-process', '--disable-site-per-process', '--disable-web-security', '--no-sandbox','--allow-running-insecure-content','--ignore-certificate-errors']
+                    args: [ '--disable-features=IsolateOrigins,site-per-process', '--disable-site-per-process', '--disable-web-security', '--no-sandbox','--allow-running-insecure-content','--ignore-certificate-errors']
                 }
             },
               timeouts: {
