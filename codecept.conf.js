@@ -7,6 +7,7 @@ exports.config = {
               browser: "chrome",
               restart: false,
               windowSize: "maximize",
+              host:"chrome",
               show: true,
                   url: "http://dummy.no",
             desiredCapabilities: {
