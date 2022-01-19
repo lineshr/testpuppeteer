@@ -12,36 +12,46 @@ on:
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
   build:
-    # The type of runner that the job will run on
-      runs-on: ubuntu-latest
-      name: Run WDIO tests
-      steps:
-            - name: Checkout
-              uses: actions/checkout@v2
-            - uses: actions/setup-node@v1
-              with:
-                node-version: 16.3.0
-                
-            - name: setup-chromedriver
-              uses: nanasess/setup-chromedriver@v1.0.1
+    runs-on: ubuntu-latest
+    container:
+      image: node:14.4
+      options: --network-alias testHost
+    env:
+      NODE_ENV: test
+      SELENIUM_HUB_HOST: hub
+      TEST_HOST: testHost
 
+    services:
+      hub:
+        image: selenium/hub:latest
+      chrome:
+        image: selenium/node-chrome:latest
+        env:
+          HUB_HOST: hub
+          HUB_PORT: 4444
 
-                
-                
-            - name: Install
-              run: |
-                   npm install
-                   npm install --save-dev webdriverio@^5.2.2
-                   npm i mocha-multi --force
-                   npx codeceptjs run --steps
-            - uses: actions/upload-artifact@v1
-              if: failure()
-              with:
-                name: logs
-                path: logs
+    strategy:
+      matrix:
+        node-version: [16.3.0]
 
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: NPM install
+        run: npm install
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_PAT }}
+      - name: Run Store Tests
+        run: npx codeceptjs run  --reporter mocha-multi 
+      - name: Archive mochawesome Test Report
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v2
+        with:
+          name: mochawesome-test-report
+          path: ./output
