@@ -27,12 +27,11 @@ jobs:
               with:
                 node-version: 16.3.0
             - name: Install
-              run: npm install
-            - name: Test
-              run:  npm ci --force
-                    npm install --save-dev webdriverio@^5.2.2
-                    npm i mocha-multi --force
-                    npx codeceptjs run --steps
+              run: |
+                   npm install
+                   npm install --save-dev webdriverio@^5.2.2
+                   npm i mocha-multi --force
+                   npx codeceptjs run --steps
             - uses: actions/upload-artifact@v1
               if: failure()
               with:
