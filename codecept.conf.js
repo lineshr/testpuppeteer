@@ -8,7 +8,7 @@ exports.config = {
               restart: false,
               windowSize: "maximize",
               host:"chrome",
-              show: true,
+              show: false,
                   url: "http://localhost",
             desiredCapabilities: {
                 chromeOptions: {
