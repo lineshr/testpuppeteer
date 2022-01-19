@@ -25,9 +25,9 @@ jobs:
 
     services:
       hub:
-        image: selenium/hub:latest
+        image: selenium/hub:3.141.59
       chrome:
-        image: selenium/node-chrome:latest
+        image: selenium/node-chrome:3.141.59
         env:
           HUB_HOST: hub
           HUB_PORT: 4444
