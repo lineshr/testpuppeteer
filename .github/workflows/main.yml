@@ -34,6 +34,7 @@ jobs:
           npm install
           npm ci --force
           npm install -g allure-commandline --save-dev
+          npm install --save-dev webdriverio@^5.2.2
           npm i mocha-multi --force
           npx codeceptjs run --steps
 
