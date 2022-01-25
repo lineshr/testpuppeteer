@@ -12,31 +12,41 @@ on:
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+
 jobs:
   build:
-    runs-on: ubuntu-latest
-    container:
-      image: node:14.4
-      options: --network-alias testHost
 
+    runs-on: ubuntu-18.04
 
     strategy:
       matrix:
-        node-version: [16.3.0]
+        node-version: [12.x]
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-      - name: NPM install
-        run: npm install
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_PAT }}
-      - name: Report Tests
-        run:  npm i mocha-multi  --save-dev webdriverio@^5.2.2 --force
-      - name: Run Store Tests
-        run: npx codeceptjs run  --steps --verbose
+    - uses: actions/checkout@v1
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - uses: microsoft/playwright-github-action@v1
+    - name: install required packages
+      run: |
+        sudo apt-get install php
+    - name: npm install
+      run: |
+        npm install
+    - name: start a server
+      run: "php -S 127.0.0.1:8000 -t test/data/app &"
+    - name: run chromium tests
+      run: "./bin/codecept.js run -c test/acceptance/codecept.Playwright.js --grep @Playwright --debug"
+    - name: run firefox tests
+      run: "BROWSER=firefox node ./bin/codecept.js run -c test/acceptance/codecept.Playwright.js --grep @Playwright --debug"
+    - name: run webkit tests
+      run: "BROWSER=webkit node ./bin/codecept.js run -c test/acceptance/codecept.Playwright.js --grep @Playwright --debug"
+    - name: run unit tests
+      run: ./node_modules/.bin/mocha test/helper/Playwright_test.js
+    - name: Report Tests
+      run:  npm i mocha-multi  --save-dev webdriverio@^5.2.2 --force
+    - name: Run Store Tests
+      run: npx codeceptjs run  --steps --verbose
 
