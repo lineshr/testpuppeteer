@@ -2,17 +2,17 @@ exports.config = {
   tests: './*_test.js',
   output: './output',
   helpers: {
-      WebDriver : {
+     WebDriver : {
           smartWait: 5000,
               browser: "chrome",
               restart: false,
               windowSize: "maximize",
-              host:"chrome",
-              show: false,
-                  url: "http://localhost",
+              show: true,
+              host:"selenium_host",
+                  url: "http://dummy.no",
             desiredCapabilities: {
                 chromeOptions: {
-                    args: [ '--disable-features=IsolateOrigins,site-per-process', '--disable-site-per-process', '--disable-web-security', '--no-sandbox','--allow-running-insecure-content','--ignore-certificate-errors']
+                    args: [ '--proxy-server=http://localhost:8090', '--disable-features=IsolateOrigins,site-per-process', '--disable-site-per-process', '--disable-web-security', '--no-sandbox','--allow-running-insecure-content','--ignore-certificate-errors']
                 }
             },
               timeouts: {
@@ -32,4 +32,11 @@ exports.config = {
   },
   bootstrap: null,
   name: 'webdriverpuppeteer'
+   plugins: {
+       
+        wdio: {
+            enabled: true,
+            services: ['selenium-standalone']
+        },
+}
 }
