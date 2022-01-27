@@ -10,32 +10,12 @@ on:
   pull_request:
     branches: [ master ]
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
 jobs:
-  build:
-
-    runs-on: ubuntu-18.04
-
-    strategy:
-      matrix:
-        node-version: [12.x]
-
-
+  test:
+    runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - run: npm install
-      env:
-        PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: true
-        PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: true
-    - run: npm test
-    - name: Report Tests
-      run:  npm i mocha-multi  --save-dev webdriverio@^5.2.2 --force
-    - name: Run Store Tests
-      run: npx codeceptjs run  --steps --verbose
+      - uses: actions/checkout@v2
+      - name: Build the stack
+        run: docker-compose up -d
+
 
