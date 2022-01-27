@@ -29,5 +29,10 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
+      - run: |
+          npm install
+          npm ci --force
+          npm install @wdio/selenium-standalone-service --save-dev
+          npx codeceptjs run  --steps --verbose
 
 
