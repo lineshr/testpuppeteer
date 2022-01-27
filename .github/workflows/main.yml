@@ -32,8 +32,10 @@ jobs:
       - run: |
           npm install
           npm ci --force
-          npm install codeceptjs webdriverio --save-dev
-          npm install selenium-standalone -g selenium-standalone install && selenium-standalone start
+          npm install codeceptjs  --save-dev
+          npm i -D selenium-standalone
+          npx selenium-standalone install
+          npx selenium-standalone start &
           npx codeceptjs run  --steps --verbose
 
 
