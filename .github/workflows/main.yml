@@ -33,6 +33,7 @@ jobs:
           npm install
           npm ci --force
           npm install @wdio/selenium-standalone-service --save-dev
+          npm install codeceptjs webdriverio --save-dev
           npx codeceptjs run  --steps --verbose
 
 
