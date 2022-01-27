@@ -2,25 +2,24 @@ exports.config = {
   tests: './*_test.js',
   output: './output',
   helpers: {
-     WebDriver : {
-          smartWait: 5000,
-              browser: "chrome",
-              restart: false,
-              windowSize: "maximize",
-              show: true,
-              host:"selenium_host",
-                  url: "http://dummy.no",
-            desiredCapabilities: {
-                chromeOptions: {
-                    args: [ '--proxy-server=http://localhost:8090', '--disable-features=IsolateOrigins,site-per-process', '--disable-site-per-process', '--disable-web-security', '--no-sandbox','--allow-running-insecure-content','--ignore-certificate-errors']
-                }
-            },
-              timeouts: {
-            "script": 60000,
-                "page load": 10000
-          },
+Playwright: {
+      url: '',
+    //  waitForNavigation: ["networkidle0", "domcontentloaded"],
+      // waitForNavigation:  "networkidle0",
+      waitForAction: 100,
+      waitForTimeout: 20000,
+      getPageTimeout: 20000,
+      windowSize: "1200x900",
+      browser: 'firefox',
+      show: false,
+      chrome: {
+        args: ['--disable-features=IsolateOrigins,site-per-process', '--disable-site-per-process', '--disable-web-security', '--no-sandbox','--allow-running-insecure-content'],
+        ignoreHTTPSErrors: true
+      },
+      pressKeyDelay: 5,
+      video: true
 
-        },
+    },
   },
   include: {
     I: './steps_file.js'
@@ -31,12 +30,6 @@ exports.config = {
     }
   },
   bootstrap: null,
-  name: 'webdriverpuppeteer',
-   plugins: {
-       
-        wdio: {
-            enabled: true,
-            services: ['selenium-standalone']
-        },
-}
+  name: 'webdriverpuppeteer'
+
 }
