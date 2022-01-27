@@ -16,12 +16,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Build the stack
-        run: docker-compose up -d
-        
+        run: docker-compose up -d    
       - name: Build the nodejs
       - uses: actions/checkout@v2
-      - name: Build the stack
-        run: docker-compose up -d
       - name: Build the stack
       - uses: actions/checkout@v2
       - name: Use Node.js 17.x
