@@ -1,0 +1,9 @@
+version: '3.3'
+services:
+  eid-zaptest:
+    image: owasp/zap2docker-stable
+    command: zap.sh -daemon -newsession ./ -addonupdate -config api.disablekey=true -config api.addrs.addr.name=.* -config api.addrs.addr.regex=true -config globalexcludeurl.url_list.url(0).regex="^https://www\.google-analytics\.com/.*" -config globalexcludeurl.url_list.url(1).regex="^https://www\.googletagmanager\.com/.*" -config globalexcludeurl.url_list.url(2).regex="^https://www\.accounts.google\.com/.*" -port 8090 -host 0.0.0.0
+    ports:
+      - 8090:8090
+    environment:
+      - ZAP_PORT=8090
