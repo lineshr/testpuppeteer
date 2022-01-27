@@ -31,7 +31,7 @@ exports.config = {
     }
   },
   bootstrap: null,
-  name: 'webdriverpuppeteer'
+  name: 'webdriverpuppeteer',
    plugins: {
        
         wdio: {
