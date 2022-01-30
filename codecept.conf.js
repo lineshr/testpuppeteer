@@ -21,6 +21,7 @@ exports.config = {
           },
 
         },
+    },
   include: {
     I: './steps_file.js'
   },
