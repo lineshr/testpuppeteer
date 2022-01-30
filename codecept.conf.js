@@ -8,7 +8,7 @@ exports.config = {
               restart: false,
               windowSize: "maximize",
               show: true,
-              host:"selenium_host",
+              host:"localhost",
                   url: "http://dummy.no",
             desiredCapabilities: {
                 chromeOptions: {
