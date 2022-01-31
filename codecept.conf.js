@@ -2,15 +2,19 @@ exports.config = {
   tests: './*_test.js',
   output: './output',
   helpers: {
-      WebDriver : {
-          smartWait: 5000,
-              browser: "chrome",
+        Puppeteer : {
+       url: "http://localhost",
+       restart: false,
+       waitForNavigation: "networkidle0",
+       waitForAction: 500,    
+          browser: "chrome",
               restart: false,
               windowSize: "maximize",
               show: true,
               host:"localhost",
                   url: "http://dummy.no",
-            desiredCapabilities: {
+          
+                      desiredCapabilities: {
                 chromeOptions: {
                     args: [ '--proxy-server=http://localhost:8090', '--disable-features=IsolateOrigins,site-per-process', '--disable-site-per-process', '--disable-web-security', '--no-sandbox','--allow-running-insecure-content','--ignore-certificate-errors']
                 }
@@ -19,9 +23,11 @@ exports.config = {
             "script": 60000,
                 "page load": 10000
           },
+     },
+
 
         },
-    },
+    
   include: {
     I: './steps_file.js'
   },
