@@ -8,10 +8,10 @@ await I.amOnPage('http://test-client-ansattporten-systest.dev.eid.digdirnfl.no/'
 await I.click('Login');
 
 
-    await I.see('Slik skaffar du deg elektronisk ID');
-    await I.see('Ansattporten let deg logga inn på vegne av ei verksemd.');
-    await I.see('Hjelp til innlogging');
-    await I.see('Tryggleik og personvern');
+    await I.see('Login with whatever you want');
+    await I.see('Ansattporten allows you to log in on behalf of an organisation.');
+    await I.see('Help to log in');
+    await I.see('security-and-privacy');
 
 
 });
