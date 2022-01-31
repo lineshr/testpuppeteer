@@ -48,5 +48,5 @@ jobs:
 
       - name: Generate Test Report 
         run: |
-             docker exec -it $(docker ps --format '{{.Names}}') /bin/bash
+             docker exec -t $(docker ps --format '{{.Names}}') /bin/bash
              ls /home/zap/
