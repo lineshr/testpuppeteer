@@ -44,6 +44,5 @@ jobs:
       - name: Generate Test Report
         run:  curl -o report.html "http://localhost:8090/JSON/reports/action/generate/?title=test&template=modern&theme=&description=&contexts=&sites=&sections=&includedConfidences=&includedRisks=&reportFileName=&reportFileNamePattern=&reportDir=&display"
 
-      - name: Generate Test Report 
-        run: docker exec -t $(docker ps --format '{{.Names}}') /bin/bash
+
            
