@@ -46,5 +46,8 @@ jobs:
       - name: Generate Test Report
         run:  curl -o report.html "http://localhost:8090/JSON/reports/action/generate/?title=test&template=modern&theme=&description=&contexts=&sites=&sections=&includedConfidences=&includedRisks=&reportFileName=&reportFileNamePattern=&reportDir=&display"
 
-
-
+      - name: Generate Test Report 
+        run: |
+              export svr=$(docker ps --format "table {{.ID}}"| sed 's/CONTAINER ID//g' | sed '/^[[:space:]]*$/d')
+              docker exec -it $svr bash
+              ls /home/zap/
