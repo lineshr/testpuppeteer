@@ -10,7 +10,7 @@ exports.config = {
           browser: "chrome",
               restart: false,
               windowSize: "maximize",
-              show: true,
+              show: false,
               host:"localhost",
                   url: "http://dummy.no",
           
