@@ -24,6 +24,8 @@ jobs:
       - uses: actions/checkout@v2
       - name:  stack init
         run: docker swarm init
+      - name:  swarm jointoken
+        run: docker swarm join-token worker
       - name: Build the stack
         run: docker-compose up -d
       - name: check the stack
