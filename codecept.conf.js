@@ -9,7 +9,6 @@ exports.config = {
        waitForAction: 500,    
           browser: "chrome",
               restart: false,
-              windowSize: "maximize",
               show: false,
               host:"localhost",
                   url: "http://dummy.no",
