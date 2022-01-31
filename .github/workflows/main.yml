@@ -23,9 +23,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Build the stack
-        run:  docker run -d -p 4444:4444 -v /var/lib/selenium:/dev/shm selenium/standalone-firefox:latest
-      - name: check url
-        run: wget http://localhost:4444/
+        run: docker-compose up -d
+
       - uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
