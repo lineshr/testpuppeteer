@@ -42,13 +42,9 @@ jobs:
           npm i mocha-multi --force
           npx codeceptjs run --steps --verbose 
           
-      - name: Use Node.js ${{ matrix.node-version }}
-        run:  curl -o http://localhost:8090/JSON/reports/action/generate/?title=test&template=modern&theme=&description=&contexts=&sites=&sections=&includedConfidences=&includedRisks=&reportFileName=&reportFileNamePattern=&reportDir=&display=
-
+  
       - name: Generate Test Report
-        run:  curl -o http://localhost:8090/JSON/reports/action/generate/?title=test&template=modern&theme=&description=&contexts=&sites=&sections=&includedConfidences=&includedRisks=&reportFileName=&reportFileNamePattern=&reportDir=&display=
-
-
+        run:  curl -o report.html "http://localhost:8090/JSON/reports/action/generate/?title=test&template=modern&theme=&description=&contexts=&sites=&sections=&includedConfidences=&includedRisks=&reportFileName=&reportFileNamePattern=&reportDir=&display"
 
 
 
