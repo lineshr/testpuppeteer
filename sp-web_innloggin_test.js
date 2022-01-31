@@ -1,7 +1,8 @@
 
 Feature('sp-web-login');
 
-Scenario('sp-web loginn',  (I)   => {
+
+Scenario('pålogging via api @ansattporten', async ({I}) => {
 I.amOnPage('https://github.com');
 I.click('Sign in', '//html/body/div[1]/header');
 I.see('Sign in to GitHub', 'h1');
