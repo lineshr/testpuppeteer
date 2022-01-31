@@ -11,7 +11,7 @@ await I.click('Login');
     await I.see('Login with whatever you want');
     await I.see('Ansattporten allows you to log in on behalf of an organisation.');
     await I.see('Help to log in');
-    await I.see('security-and-privacy');
+
 
 
 });
