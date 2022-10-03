@@ -10,22 +10,12 @@ jobs:
   k6_load_test:
     name: k6 Load Test
     runs-on: ubuntu-latest
-    container:
-      image: docker://grafana/k6:latest
-    
+
     steps:
       - name: Checkout
         uses: actions/checkout@v1
-      - name: Copy k6-tests to docker temp
-        run: |
-          cp k6-load-tests/* ./
 
-      - name: Cloud k6 test
-        run: k6 run test-script.js
-
-      - name: Upload performance test results
-        uses: actions/upload-artifact@v3
+      - name: Run local k6 test
+        uses: grafana/k6-action@v0.2.0
         with:
-          name: k6-report
-          path: results.json
-          
+          filename: test.js
