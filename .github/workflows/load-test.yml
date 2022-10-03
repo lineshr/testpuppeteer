@@ -17,7 +17,7 @@ jobs:
       ports:
         - 80
       volumes:
-        - /k6-load-tests/:/k6-load-tests/
+        - test-script.js/:test-script.js
     
     steps:
       - name: Checkout
