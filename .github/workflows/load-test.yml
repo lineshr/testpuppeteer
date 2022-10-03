@@ -6,15 +6,24 @@ name: CI-Load
 on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-jobs:
-  k6_cloud_test:
-    name: k6 cloud test run
+jobs:  
+ k6_load_test:
+    name: k6 Load Test
     runs-on: ubuntu-latest
-    container: docker://grafana/k6:latest
 
     steps:
       - name: Checkout
         uses: actions/checkout@v1
 
-      - name: Cloud k6 test
-        run: k6 run ./test.js
+      - name: Run local k6 test
+        uses: grafana/k6-action@v0.2.0
+        with:
+          options: -v ${{ github.workspace }}/k6-load-tests/:/k6-load-tests
+          filename: k6-loal-tests/test-script.js
+          flags: --out json=results.json
+
+      - name: Upload performance test results
+        uses: actions/upload-artifact@v3
+        with:
+          name: k6-report
+          path: results.json
