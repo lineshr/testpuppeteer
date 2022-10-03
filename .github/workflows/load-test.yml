@@ -18,4 +18,5 @@ jobs:
       - name: Run local k6 test
         uses: grafana/k6-action@v0.2.0
         with:
+          volumes: -v /home/testpuppeteer/k6-load-tests/:/k6-load-tests/
           filename: test-script.js
