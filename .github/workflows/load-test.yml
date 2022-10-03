@@ -10,8 +10,14 @@ jobs:
   k6_load_test:
     name: k6 Load Test
     runs-on: ubuntu-latest
-    container: docker://grafana/k6:latest
-
+    container:
+      image: docker://grafana/k6:latest
+      env:
+        NODE_ENV: development
+      ports:
+        - 80
+      volumes:
+        - /k6-load-tests/:/k6-load-tests/
     
     steps:
       - name: Checkout
