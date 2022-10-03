@@ -13,7 +13,7 @@ jobs:
     container:
       image: docker://grafana/k6:latest
       volumes:
-        - test-script.js:test-script.js
+        - k6-load-tests/:k6-load-tests/
     
     steps:
       - name: Checkout
