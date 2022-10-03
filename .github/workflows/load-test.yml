@@ -12,12 +12,8 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: docker://grafana/k6:latest
-      env:
-        NODE_ENV: development
-      ports:
-        - 80
       volumes:
-        - test-script.js/:test-script.js
+        - test-script.js:test-script.js
     
     steps:
       - name: Checkout
