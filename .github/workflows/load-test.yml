@@ -12,13 +12,13 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: docker://grafana/k6:latest
-      volumes:
-        - k6-load-tests/:k6-load-tests/
     
     steps:
       - name: Checkout
         uses: actions/checkout@v1
-
+      - name: Copy k6-tests to docker temp
+        run: |
+          cp k6-load-tests/* docker/k6-tests/
 
       - name: Cloud k6 test
         run: k6 run test-script.js
